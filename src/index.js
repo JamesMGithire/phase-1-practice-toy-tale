@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let createToy = document.querySelector(".submit");
   createToy.parentElement.addEventListener("submit", (e) => {
     e.preventDefault();
-    let newToyName = e.target.children[1].value;
-    let newToyUrl = e.target.children[3].value;
     fetch("http://localhost:3000/toys", {
       method: "POST",
       body: JSON.stringify({
@@ -52,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toyImg.src = el.image;
         toyImg.classList.add("toy-avator");
         toyDiv.appendChild(toyImg);
-
+        toyImg.style.maxWidth= "250px";
         toyLikes.textContent = el.likes + " Likes";
         toyDiv.appendChild(toyLikes);
 
